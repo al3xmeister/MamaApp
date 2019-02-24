@@ -12,7 +12,7 @@ namespace MamaApp.Views
 
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage : ContentPage
     {
         BaseViewModel viewModel;
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
@@ -24,17 +24,7 @@ namespace MamaApp.Views
 
             BindingContext = new BaseViewModel();
 
-            MasterBehavior = MasterBehavior.Popover;
-
-            try
-            {
-                MenuPages.Add((int)MenuItemType.Meniu, (NavigationPage)Detail);
-
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex);
-            }
+       
 
         }
 
@@ -66,8 +56,9 @@ namespace MamaApp.Views
                             if (Navigation.ModalStack.Count > 0)
                             {
                                 await Navigation.PopModalAsync();
-                            } else
-                            await Navigation.PushAsync(new ItemsPage());
+                            }
+                            else
+                                await Navigation.PushAsync(new ItemsPage());
                         }
                         catch (Exception e)
                         {
@@ -118,8 +109,13 @@ namespace MamaApp.Views
             {
                 try
                 {
-                    await DisplayAlert("Vezi că nu ai internet", "Verifică să ai access la internet", "Ok",
-                        "Sună Alex");
+                    var alert = await DisplayAlert("Vezi că nu ai internet", "Verifică să ai access la internet", "Ok",
+                          "Sună Alex");
+
+                    if (!alert)
+                    {
+                        Device.OpenUri(new Uri("tel:+447534848580"));
+                    }
 
                 }
                 catch (Exception ex)

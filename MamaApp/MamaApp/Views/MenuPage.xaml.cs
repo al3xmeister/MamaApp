@@ -8,24 +8,28 @@ namespace MamaApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        
         List<HomeMenuItem> menuItems;
         public MenuPage()
         {
             InitializeComponent();
 
+            NavigationPage.SetHasNavigationBar(this, false);
+
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Meniu, Title="Meniu" },
-                new HomeMenuItem {Id = MenuItemType.Muzică, Title="Muzică" },
-                new HomeMenuItem {Id = MenuItemType.Știri, Title="Știri" },
-                new HomeMenuItem {Id = MenuItemType.Horoscop, Title="Horoscop" },
-                new HomeMenuItem {Id = MenuItemType.Whatsapp, Title="Whatsapp" },
-                new HomeMenuItem {Id = MenuItemType.Mesaje, Title="Mesaje" },
-                new HomeMenuItem {Id = MenuItemType.Telefon, Title="Telefon" },
-                new HomeMenuItem {Id = MenuItemType.Țintar, Title="Țintar" },
-                new HomeMenuItem {Id = MenuItemType.Silențios, Title="Silențios" },
-                new HomeMenuItem {Id = MenuItemType.Conexiune, Title="Ce tip de conexiune am" }
+                new HomeMenuItem {Id = MenuItemType.Meniu, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Muzică, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Știri, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Horoscop, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Whatsapp, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Whatsapp, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Whatsapp, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Mesaje, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Telefon, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Țintar, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Silențios, Title="" },
+                new HomeMenuItem {Id = MenuItemType.Conexiune, Title="" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
@@ -37,7 +41,6 @@ namespace MamaApp.Views
                     return;
                 ListViewMenu.SelectedItem = null;
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-                await RootPage.NavigateFromMenu(id);
             };
         }
     }

@@ -15,7 +15,7 @@ namespace MamaApp
             InitializeComponent();
 
 
-            MainPage = new MainPage(new BaseViewModel());
+            MainPage = new ItemsPage();
         }
 
         protected override void OnStart()

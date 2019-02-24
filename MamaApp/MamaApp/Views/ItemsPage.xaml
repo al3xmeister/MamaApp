@@ -1,45 +1,142 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:views="clr-namespace:MamaApp.Views;assembly=MamaApp"
+             xmlns:controls="clr-namespace:MamaApp.Controls;assembly=MamaApp"
              x:Class="MamaApp.Views.ItemsPage"
-              Title="{Binding Title}"
+             
+             ControlTemplate="{StaticResource DefaultMenuPage}"
              x:Name="BrowseItemsPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Adaugă" Clicked="AddItem_Clicked">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>
-            </ToolbarItem.Icon>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate
+                x:Key="DefaultMenuPage">
+                <Grid
+                    x:Name="navbarGrid"
+                    BackgroundColor="{StaticResource PrimaryDark}"
+                    ColumnSpacing="0"
+                    HeightRequest="35"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Grid.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0,25,0,0" />
+                            <On Platform="Android" Value="0,0,0,0" />
+                        </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="40" />
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="50" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        x:Name="firstIcon"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Aspect="AspectFit"
+                        
+                        HeightRequest="30"
+                        HorizontalOptions="Center"
+                        Source="HamburgerButton.png"
+                        VerticalOptions="Center"
+                        WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="HamburgerMenuImage_OnTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="Transparent"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="Aplicația mea"
+                        TextColor="#E2E2E2"
+                        VerticalOptions="Center">
 
-    <StackLayout>
-        <ListView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
-                VerticalOptions="FillAndExpand"
-                HasUnevenRows="true"
-                RefreshCommand="{Binding LoadItemsCommand}"
-                IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                CachingStrategy="RecycleElement"
-                ItemSelected="OnItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Text}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                            <Label Text="{Binding Description}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                    </Label>
+
+                        <Image
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Aspect="AspectFit"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="Center"
+                        Source="mapIcon.png"
+                        VerticalOptions="Center"
+                        WidthRequest="30">
+                       
+                    </Image>
+                    <ContentPresenter
+                        Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        BackgroundColor="{StaticResource PrimaryDark}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand" />
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content
+        >
+        <Grid
+            BackgroundColor="White"
+            Margin="0"
+            Padding="0">
+            <primitives:RadSideDrawer
+                x:Name="Drawer"
+                Margin="0"
+                DrawerLength="250"
+                DrawerTransitionType="SlideInOnTop">
+                <primitives:RadSideDrawer.DrawerContent>
+                    <views:SidebarMenu />
+                </primitives:RadSideDrawer.DrawerContent>
+                <primitives:RadSideDrawer.MainContent
+                    >
+                    <Grid
+                        Margin="0"
+                        Padding="0"
+                        x:Name="MainGrid">
+                        <Image Source="thankyou.png" Aspect="AspectFit" />
+                        <ActivityIndicator
+                            x:Name="activityIndicator"
+                            HeightRequest="40"
+                            HorizontalOptions="CenterAndExpand"
+                            IsRunning="{Binding IsBusy}"
+                            IsVisible="{Binding IsBusy}"
+                            VerticalOptions="CenterAndExpand">
+                            <ActivityIndicator.WidthRequest>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="100"
+                                    iOS="100" />
+                            </ActivityIndicator.WidthRequest>
+                            <ActivityIndicator.Color>
+                                <OnPlatform
+                                    x:TypeArguments="Color"
+                                    Android="Teal"
+                                    iOS="Teal" />
+                            </ActivityIndicator.Color>
+                        </ActivityIndicator>
+                    </Grid>
+                    
+                </primitives:RadSideDrawer.MainContent>
+            </primitives:RadSideDrawer>
+
+        </Grid>
+
+    </ContentPage.Content>
 </ContentPage>
