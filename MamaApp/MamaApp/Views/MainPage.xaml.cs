@@ -1,15 +1,15 @@
 ﻿using MamaApp.Models;
+using MamaApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MamaApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MamaApp.Views
 {
-    
+
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
@@ -56,21 +56,47 @@ namespace MamaApp.Views
                     case (int)MenuItemType.Muzică:
                         MenuPages.Add(id, new NavigationPage(new MuzicăPage()));
                         break;
-                    default: await DisplayAlert("Încă nu e implementat, vă rugăm reveniți", "", "Ok", "Anulează");
+                    default:
+                        await DisplayAlert("Încă nu e implementat, vă rugăm reveniți", "", "Ok", "Anulează");
+
+                        try
+                        {
+
+                            //this needs extracted into a static utility method
+                            if (Navigation.ModalStack.Count > 0)
+                            {
+                                await Navigation.PopModalAsync();
+                            } else
+                            await Navigation.PushAsync(new ItemsPage());
+                        }
+                        catch (Exception e)
+                        {
+                            System.Diagnostics.Debug.WriteLine(e);
+
+                        }
+
                         break;
                 }
             }
 
-            var newPage = MenuPages[id];
-
-            if (newPage != null && Detail != newPage)
+            try
             {
-                Detail = newPage;
 
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
+                var newPage = MenuPages[id];
 
-                IsPresented = false;
+                if (newPage != null && Detail != newPage)
+                {
+                    Detail = newPage;
+
+                    if (Device.RuntimePlatform == Device.Android)
+                        await Task.Delay(100);
+
+                    IsPresented = false;
+                }
+            }
+            catch (Exception x)
+            {
+                Debug.WriteLine(x);
             }
         }
 
@@ -88,7 +114,7 @@ namespace MamaApp.Views
 
         private async void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
         {
-            if (this.viewModel.HasNetworkAccess is false)
+            if (viewModel.HasNetworkAccess is false)
             {
                 try
                 {
