@@ -148,7 +148,7 @@
                   TextColor="#E2E2E2"
                   VerticalOptions="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" />
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Horoscop_Tapped" />
                                 </Label.GestureRecognizers>
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">

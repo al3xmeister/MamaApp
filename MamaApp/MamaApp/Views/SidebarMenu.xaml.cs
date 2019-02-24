@@ -1,32 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using MamaApp.ViewModels;
+using System;
 using System.Threading.Tasks;
-using MamaApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MamaApp.Views {
+namespace MamaApp.Views
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SidebarMenu : ContentView {
-        public SidebarMenu() {
-            InitializeComponent();  
+    public partial class SidebarMenu : ContentView
+    {
+        public SidebarMenu()
+        {
+            InitializeComponent();
         }
-        
-        public BaseViewModel ViewModel => (BaseViewModel)this.BindingContext;
+
+        public BaseViewModel ViewModel => (BaseViewModel) BindingContext;
 
 
-        public void OnAnimationStarted(bool isPopAnimation) {
+        public void OnAnimationStarted(bool isPopAnimation)
+        {
             // Put your code here but leaving empty works just fine
         }
 
-        public void OnAnimationFinished(bool isPopAnimation) {
+        public void OnAnimationFinished(bool isPopAnimation)
+        {
             // Put your code here but leaving empty works just fine
         }
 
 
-        // this needs ncommented
+        // this needs uncommented
         //public async Task NavigateIfHasNetworkAccess(Page page) {
         //    if (ViewModel.HasNetworkAccess) {
         //        await Navigation.PushAsync(page);
@@ -35,118 +37,47 @@ namespace MamaApp.Views {
         //    }
         //}
 
-        private async void Muzică_Tapped(object sender, EventArgs e) {
-            var view = (View)sender;
+        private async void Muzică_Tapped(object sender, EventArgs e)
+        {
+            var view = (View) sender;
             view.IsEnabled = false;
 
-           // await Navigation.PushAsync(new ProfileView(ViewModel.User));
+            await Navigation.PushModalAsync((new MuzicăPage()));
 
             view.IsEnabled = true;
         }
 
-        private async void PlanAndBilling_Clicked(object sender, EventArgs e) {
-            var view = (View)sender;
+
+
+        private async void ContactUs_Clicked(object sender, EventArgs e)
+        {
+            var view = (View) sender;
             view.IsEnabled = false;
 
-          //  await NavigateIfHasNetworkAccess(new PlanAndBillingView());
+            //  await Navigation.PushAsync(new ContactView());
 
             view.IsEnabled = true;
         }
 
-        private async void ReferAndEarn_Clicked(object sender, EventArgs e) {           
-            var view = (View)sender;
-            view.IsEnabled = false;
 
-            //await Navigation.PushAsync(new ReferAndEarnView());
+        private async void Horoscop_Tapped(object sender, EventArgs e)
+        {
+            var today = DateTime.Today;
 
-            view.IsEnabled = true;
-        }
-     
-        private async void FAQs_Clicked(object sender, EventArgs e) {         
-            var view = (View)sender;
-            view.IsEnabled = false;
+            var day = today.Day;
+            var month = today.Month;
+            var year = today.Year;
 
-           // await NavigateIfHasNetworkAccess(new BrowserView("https://venue.cheerzapp.com/faqs"));
+            var uri = new Uri(
+                $"https://www.youtube.com/results?search_query=horoscop+berbec+voropchievici+{day}+{month}+{year}");
 
-            view.IsEnabled = true;
-        }
-
-        private async void TapGestureRecognizer_Tapped_TermsAndConditionsLink(object sender, EventArgs e) {          
-            var view = (View)sender;
-            view.IsEnabled = false;
-
-           // await NavigateIfHasNetworkAccess(new BrowserView("https://venue.cheerzapp.com/termsofuse"));
-
-            view.IsEnabled = true;
-        }
-
-        private async void TapGestureRecognizer_Tapped_PrivacyPolicyLink(object sender, EventArgs e) {          
-            var view = (View)sender;
-            view.IsEnabled = false;
-
-            //await NavigateIfHasNetworkAccess(new BrowserView("https://venue.cheerzapp.com/privacypolicy"));
-
-            view.IsEnabled = true;
-        }
-
-        private async void ContactUs_Clicked(object sender, EventArgs e) {
-            var view = (View)sender;
-            view.IsEnabled = false;
-
-          //  await Navigation.PushAsync(new ContactView());
-
-            view.IsEnabled = true;
-        }
-
-        private async void Login_Clicked(object sender, EventArgs e) {
-            var view = (View)sender;
-            view.IsEnabled = false;
-            
-           // await Navigation.PushAsync(new LoginView());
-            view.IsEnabled = true;
-        }
-
-        private async void LogSignUp_Clicked(object sender, EventArgs e) {
-            var view = (View)sender;
-            view.IsEnabled = false;
-
-          //  await NavigateIfHasNetworkAccess(new SignupView());
-
-            view.IsEnabled = true;
-        }
-
-        private void Logout_Clicked(object sender, EventArgs e) {
-            var view = (View)sender;
-            view.IsEnabled = false;
-
-          //  PropertyUtility.RemoveKey("Token");
-           // PropertyUtility.RemoveKey("FacebookId");
-          //  PropertyUtility.SetValue("DateOfBirthPopulated","false");                       
-
-            Device.BeginInvokeOnMainThread(async () =>
+            await Task.Run(() =>
             {
-
-            });          
-
-            view.IsEnabled = true;
+                Device.BeginInvokeOnMainThread( () =>
+                {
+                    Device.OpenUri(uri);
+                });
+            });
         }
-
-        private async void PlanAndBillingView_Clicked(object sender, EventArgs e) {
-            var view = (View)sender;
-            view.IsEnabled = false;
-
-         //   await Navigation.PushAsync(new PlanAndBillingView());
-
-            view.IsEnabled = true;
-        }
-
-        private async void UpdateCardDetails_Clicked(object sender, EventArgs e) {
-            var view = (View)sender;
-            view.IsEnabled = false;
-
-          //  await Navigation.PushAsync(new UpdateCardDetailsView());
-
-            view.IsEnabled = true;
-        }        
     }
 }
