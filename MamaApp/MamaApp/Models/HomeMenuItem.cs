@@ -6,7 +6,7 @@ namespace MamaApp.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        
         Meniu,
         Muzică,
         Horoscop,
@@ -15,7 +15,8 @@ namespace MamaApp.Models
         Telefon,
         Știri,
         Țintar,
-        Silențios
+        Silențios,
+        Conexiune
       
     }
     public class HomeMenuItem

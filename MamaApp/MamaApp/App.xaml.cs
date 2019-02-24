@@ -1,4 +1,5 @@
 ﻿using System;
+using MamaApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MamaApp.Views;
@@ -14,7 +15,7 @@ namespace MamaApp
             InitializeComponent();
 
 
-            MainPage = new MainPage();
+            MainPage = new MainPage(new BaseViewModel());
         }
 
         protected override void OnStart()

@@ -22,4 +22,10 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Utility\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\MuzicăPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

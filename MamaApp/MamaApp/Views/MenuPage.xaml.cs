@@ -24,7 +24,8 @@ namespace MamaApp.Views
                 new HomeMenuItem {Id = MenuItemType.Mesaje, Title="Mesaje" },
                 new HomeMenuItem {Id = MenuItemType.Telefon, Title="Telefon" },
                 new HomeMenuItem {Id = MenuItemType.Țintar, Title="Țintar" },
-                new HomeMenuItem {Id = MenuItemType.Silențios, Title="Silențios" }
+                new HomeMenuItem {Id = MenuItemType.Silențios, Title="Silențios" },
+                new HomeMenuItem {Id = MenuItemType.Conexiune, Title="Ce tip de conexiune am" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

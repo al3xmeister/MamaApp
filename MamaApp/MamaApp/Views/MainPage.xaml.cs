@@ -26,7 +26,16 @@ namespace MamaApp.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            try
+            {
+                MenuPages.Add((int)MenuItemType.Meniu, (NavigationPage)Detail);
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
+
         }
 
         public BaseViewModel ViewModel {
@@ -41,11 +50,13 @@ namespace MamaApp.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
+                    case (int)MenuItemType.Meniu:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)MenuItemType.Muzică:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        MenuPages.Add(id, new NavigationPage(new MuzicăPage()));
+                        break;
+                    default: await DisplayAlert("Încă nu e implementat, vă rugăm reveniți", "", "Ok", "Anulează");
                         break;
                 }
             }
