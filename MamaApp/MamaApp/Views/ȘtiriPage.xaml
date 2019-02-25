@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:MamaApp.Behaviors;assembly=MamaApp"
+             x:Class="MamaApp.Views.ȘtiriPage">
+
+    <ContentPage.Behaviors>
+        <behaviors:EventToCommandBehavior EventName="Appearing" Command="{Binding AppearingCommand}" />
+    </ContentPage.Behaviors>
+    <ListView  x:Name="BookingList"
+               
+               HasUnevenRows="true"
+               IsGroupingEnabled="true"
+               ItemSelected="OnNewsItem_Selected"
+               ItemsSource="{Binding Articles}"
+               SeparatorVisibility="None">
+
+        <!--Built in Cells-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell
+                       StyleId="none">
+                    <Grid
+                       x:Name="swipeCell"
+                       ColumnSpacing="0"
+                       HeightRequest="200"
+                       RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                 Height="*" />
+                            <RowDefinition
+                                 Height="100" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                  Width="*" />
+                            <ColumnDefinition
+                                  Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="2"
+                            Aspect="AspectFill"
+                            Source="{Binding urlToImage}" />
+                        <Image
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="2"
+                            Margin="0,0,0,-1"
+                            Aspect="AspectFill"
+                            Source="gradient.png"
+                            VerticalOptions="EndAndExpand" />
+                        <Frame
+                            Grid.Column="1"
+                            Margin="10"
+                            Padding="0"
+                            BackgroundColor="#FFD100"
+                            BorderColor="#FFD100"
+                            CornerRadius="2"
+                            HasShadow="False"
+                            HeightRequest="19"
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"
+                            WidthRequest="40">
+                            <Label
+                               FontSize="12"
+                               HorizontalOptions="Center"
+                               Text="NEW"
+                               TextColor="#000"
+                               VerticalOptions="Center">
+                            </Label>
+                        </Frame>
+                        <StackLayout
+                             Grid.Row="1"
+                             Grid.Column="0"
+                             Padding="10"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="EndAndExpand">
+                            <Label
+                                  Margin="0,0,0,-3"
+                                  FontAttributes="Bold"
+                                  FontSize="18"
+                                  Text="{Binding Headline}"
+                                  TextColor="#E2E2E2">
+                            </Label>
+                            <Label
+                                Margin="0,0,0,-3"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="{Binding Article.Headline}"
+                                TextColor="#E2E2E2">
+                            </Label>
+                        </StackLayout>
+                        <Label
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Margin="10"
+                             FontSize="14"
+                             Text="{Binding Article.publishedAt}"
+                             TextColor="#E2E2E2"
+                             VerticalOptions="End">
+                        </Label>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

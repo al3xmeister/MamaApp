@@ -25,14 +25,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Behaviour\" />
+    <Folder Include="Behaviors\" />
     <Folder Include="Effects\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Utility\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NewsAPI">
+      <HintPath>C:\Users\Alex\.nuget\packages\newsapi\0.5.0\lib\portable45-net45+win8+wpa81\NewsAPI.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Views\MuzicăPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ȘtiriPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

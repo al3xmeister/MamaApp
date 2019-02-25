@@ -14,6 +14,8 @@ namespace MamaApp.Views
             InitializeComponent();
         }
 
+        string apiKey = "";
+
         public BaseViewModel ViewModel => (BaseViewModel) BindingContext;
 
 
@@ -78,6 +80,11 @@ namespace MamaApp.Views
                     Device.OpenUri(uri);
                 });
             });
+        }
+
+        private async void Știri_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ȘtiriPage(new ȘtiriPageViewModel()));
         }
     }
 }

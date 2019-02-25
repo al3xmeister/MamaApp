@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using MamaApp.Models;
+using MamaApp.Utility;
+using NewsAPI.Models;
+using Newtonsoft.Json;
+using Xamarin.Forms;
+using System.Linq;
+using Article = NewsAPI.Models.Article;
+
+namespace MamaApp.ViewModels
+{
+    public class ȘtiriPageViewModel : BaseViewModel
+    {
+        public ICommand AppearingCommand { get; set; }
+
+        public ȘtiriPageViewModel()
+        {
+            AppearingCommand = new Command(async () => await ExecuteAppearingCommand());
+        }
+
+        private ObservableCollection<Models.Article> articles = new ObservableCollection<Models.Article>();
+        public ObservableCollection<Models.Article> Articles {
+            get {
+                return articles;
+            }
+            set {
+                if (articles != value)
+                {
+                    articles = value;
+                    OnPropertyChanged(nameof(Articles));
+
+                }
+            }
+        }
+
+        public async Task ExecuteAppearingCommand()
+        {
+          var news =  await ServiceUtility.GetNews();
+
+          if (news != null )
+          {
+             this.Articles = new ObservableCollection<Models.Article>(news.Articles);
+          }
+           
+        }
+
+        public ObservableCollection<Grouping<string, Article>> NewsGrouped;
+
+        public class Grouping<K, T> : ObservableCollection<T>
+        {
+
+            public K Key { get; set; }
+
+            public Grouping(K key, IEnumerable<T> items)
+            {
+                Key = key;
+
+                foreach (var item in items)
+                {
+                    Items.Add(item);
+                }
+            }
+        }
+
+    }
+}

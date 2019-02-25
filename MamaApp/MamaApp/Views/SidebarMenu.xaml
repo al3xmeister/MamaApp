@@ -53,6 +53,7 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid
               Grid.Row="0"
@@ -112,7 +113,7 @@
                   TextColor="#E2E2E2"
                   VerticalOptions="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1"  />
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Știri_Tapped"  />
                                 </Label.GestureRecognizers>
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
@@ -394,6 +395,40 @@
                   Text="Tip de conexiune"
                   TextColor="#E2E2E2"
                   VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"  />
+                                </Label.GestureRecognizers>
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+
+                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="10">
+                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="14"
+                                HorizontalOptions="Start"
+                                Source="kublockedblue.png"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="1"
+                                Margin="10,0,0,0"
+                                FontSize="14"
+                                HorizontalTextAlignment="Start"
+                                Text="Powered by NewsApi.org"
+                                TextColor="Transparent"
+                                VerticalOptions="Center">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1"  />
                                 </Label.GestureRecognizers>
