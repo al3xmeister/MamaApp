@@ -14,8 +14,6 @@ namespace MamaApp.Views
             InitializeComponent();
         }
 
-        string apiKey = "";
-
         public BaseViewModel ViewModel => (BaseViewModel) BindingContext;
 
 
@@ -49,19 +47,6 @@ namespace MamaApp.Views
             view.IsEnabled = true;
         }
 
-
-
-        private async void ContactUs_Clicked(object sender, EventArgs e)
-        {
-            var view = (View) sender;
-            view.IsEnabled = false;
-
-            //  await Navigation.PushAsync(new ContactView());
-
-            view.IsEnabled = true;
-        }
-
-
         private async void Horoscop_Tapped(object sender, EventArgs e)
         {
             var today = DateTime.Today;
@@ -85,6 +70,12 @@ namespace MamaApp.Views
         private async void Știri_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new ȘtiriPage(new ȘtiriPageViewModel()));
+        }
+
+        private async void NotImplementedYet_Tapped(object sender, EventArgs e)
+        {
+            await Application.Current.MainPage.DisplayAlert("Încă nu e implementat", "Vă rugăm reveniți sau încercați mai târziu",
+                "Ok");
         }
     }
 }

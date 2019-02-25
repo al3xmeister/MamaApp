@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:views="clr-namespace:MamaApp.Views;assembly=MamaApp"
-             xmlns:controls="clr-namespace:MamaApp.Controls;assembly=MamaApp"
              x:Class="MamaApp.Views.ItemsPage"
-             
              ControlTemplate="{StaticResource DefaultMenuPage}"
              x:Name="BrowseItemsPage">
     <ContentPage.Resources>
@@ -65,9 +63,7 @@
                         Text="Aplicația mea"
                         TextColor="#E2E2E2"
                         VerticalOptions="Center">
-
                     </Label>
-
                         <Image
                         Grid.Row="0"
                         Grid.Column="2"
@@ -78,11 +74,10 @@
                         Source="mapIcon.png"
                         VerticalOptions="Center"
                         WidthRequest="30">
-                       
                     </Image>
                     <ContentPresenter
                         Grid.Row="1"
-                        Grid.ColumnSpan="3"
+                        Grid.ColumnSpan="3" Grid.Column="0"
                         BackgroundColor="{StaticResource PrimaryDark}"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" />
@@ -93,7 +88,7 @@
     <ContentPage.Content
         >
         <Grid
-            BackgroundColor="White"
+            BackgroundColor="LightGreen"
             Margin="0"
             Padding="0">
             <primitives:RadSideDrawer
@@ -127,16 +122,13 @@
                             <ActivityIndicator.Color>
                                 <OnPlatform
                                     x:TypeArguments="Color"
-                                    Android="Teal"
-                                    iOS="Teal" />
+                                    Android="ForestGreen"
+                                     />
                             </ActivityIndicator.Color>
                         </ActivityIndicator>
                     </Grid>
-                    
                 </primitives:RadSideDrawer.MainContent>
             </primitives:RadSideDrawer>
-
         </Grid>
-
     </ContentPage.Content>
 </ContentPage>
