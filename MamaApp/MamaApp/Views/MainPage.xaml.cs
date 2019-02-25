@@ -72,18 +72,8 @@ namespace MamaApp.Views
 
             try
             {
-
                 var newPage = MenuPages[id];
-
-                if (newPage != null && Detail != newPage)
-                {
-                    Detail = newPage;
-
-                    if (Device.RuntimePlatform == Device.Android)
-                        await Task.Delay(100);
-
-                    IsPresented = false;
-                }
+                
             }
             catch (Exception x)
             {

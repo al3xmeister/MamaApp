@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MamaApp.Views.NetworkViewPage">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Label">
+        <Setter Property="FontSize" Value="Large" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <StackLayout
+      BackgroundColor="LightGreen"
+      Spacing="5">
+    <StackLayout.Padding>
+      <OnPlatform x:TypeArguments="Thickness" Android="5"  />
+    </StackLayout.Padding>
+
+    <StackLayout Orientation="Horizontal">
+      <Label>Conectat cu: </Label>
+      <Label x:Name="ConnectionDetails" />
+    </StackLayout>
+
+  </StackLayout>
+</ContentPage>
