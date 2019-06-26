@@ -14,7 +14,7 @@
         <Grid>
         <ListView
             BackgroundColor="LightCyan"
-            ItemsSource="{Binding Articles}"
+            
             ItemTapped="Handle_ItemTapped"
             x:Name="lstView" 
             RowHeight="70">

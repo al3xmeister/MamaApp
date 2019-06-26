@@ -86,7 +86,6 @@
 
                         </Grid>
                     </Grid>
-                    
                     <Grid
               Grid.Row="1"
               HeightRequest="40"

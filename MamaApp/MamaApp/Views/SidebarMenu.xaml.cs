@@ -1,4 +1,6 @@
-﻿using MamaApp.ViewModels;
+﻿using Android.App;
+using MamaApp.Interfaces;
+using MamaApp.ViewModels;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -72,9 +74,17 @@ namespace MamaApp.Views
             await Navigation.PushModalAsync(new ȘtiriPage(new ȘtiriPageViewModel()));
         }
 
+        private async void CleanNotifications_Tapped(object sender, EventArgs e)
+        {
+            ClearNotifications();
+        }
+        public void ClearNotifications() {
+  
+        }
+
         private async void NotImplementedYet_Tapped(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.DisplayAlert("Încă nu e implementat", "Vă rugăm reveniți sau încercați mai târziu",
+            await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Încă nu e implementat", "Vă rugăm reveniți sau încercați mai târziu",
                 "Ok");
         }
     }

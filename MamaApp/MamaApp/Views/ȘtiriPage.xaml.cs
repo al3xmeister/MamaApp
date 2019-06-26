@@ -1,18 +1,25 @@
 ﻿using MamaApp.Models;
 using MamaApp.ViewModels;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Android.OS;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Newtonsoft.Json.Linq;
 
-namespace MamaApp.Views
-{
+namespace MamaApp.Views {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ȘtiriPage : ContentPage
-    {
+    public partial class ȘtiriPage : ContentPage {
 
-        public ȘtiriPage(ȘtiriPageViewModel viewModel)
-        {
+        private const string url = "https://newsapi.org/v2/top-headlines?country=ro&apiKey=514376a3e0ee44229f62f33a236b69b0";
+        private HttpClient _Client = new HttpClient();
+        private ObservableCollection<Result> _post;
+
+        public ȘtiriPage(ȘtiriPageViewModel viewModel) {
             IsBusy = true;
             Model = viewModel;
             InitializeComponent();
@@ -22,32 +29,14 @@ namespace MamaApp.Views
             IsBusy = false;
         }
 
-        private async void InitializeNews()
-        {
-            await Task.Run(() =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    IsBusy = true;
-                });
-            });
+        private async void InitializeNews() {
 
-            await Task.Run(() =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    ȘtiriPageViewModel viewModel;
-                    BindingContext = viewModel = new ȘtiriPageViewModel();
-                });
-            });
+            IsBusy = true;
 
-            await Task.Run(() =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    IsBusy = true;
-                });
-            });
+            ȘtiriPageViewModel viewModel;
+            BindingContext = viewModel = new ȘtiriPageViewModel();
+
+            IsBusy = false;
         }
 
         public ȘtiriPageViewModel Model {
@@ -55,15 +44,27 @@ namespace MamaApp.Views
             set { BindingContext = value; }
         }
 
-
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        protected override async void OnAppearing()
         {
-            await Task.Run(() =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-            {
-                IsBusy = true;
-            });
+            var response = _Client.GetAsync(url).Result;
+
+            var content = await _Client.GetStringAsync(url);
+
+            //We deserialize the JSON data from this line
+            var tr = JsonConvert.DeserializeObject<Result>(content);
+
+            var trends = new ObservableCollection<article>(tr.Articles);
+
+            lstView.ItemsSource = trends;
+
+
+        }
+
+        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
+            await Task.Run(() => {
+                Device.BeginInvokeOnMainThread(() => {
+                    IsBusy = true;
+                });
             });
 
             if (e.Item == null)
@@ -71,20 +72,16 @@ namespace MamaApp.Views
 
             ((ListView)sender).SelectedItem = null;
 
-            await Task.Run(() =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-               {
-                   var item = (Article)e.Item;
-                   var url = item.url;
+            await Task.Run(() => {
+                Device.BeginInvokeOnMainThread(() => {
+                    var item = (article)e.Item;
+                    var url = item.url;
 
-                   Device.OpenUri(new Uri(url));
-               });
+                    Device.OpenUri(new Uri(url));
+                });
             });
-            await Task.Run(() =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
+            await Task.Run(() => {
+                Device.BeginInvokeOnMainThread(() => {
                     IsBusy = false;
                 });
             });

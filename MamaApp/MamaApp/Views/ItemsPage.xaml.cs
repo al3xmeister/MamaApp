@@ -27,17 +27,6 @@ namespace MamaApp.Views
           //  NavigationPage.SetHasNavigationBar(this, false);   
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-            var item = args.SelectedItem as Item;
-            if (item == null)
-                return;
-
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
-            // Manually deselect item.
-           // ItemsListView.SelectedItem = null;
-        }
 
         protected override void OnAppearing()
         {
@@ -80,14 +69,6 @@ namespace MamaApp.Views
             this.Drawer.IsOpen = !this.Drawer.IsOpen;
         }
 
-        private void VenueList_OnRefreshing(object sender, EventArgs e)
-        {
-           // throw new NotImplementedException();
-        }
 
-        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
-        {
-           // throw new NotImplementedException();
-        }
     }
 }

@@ -8,7 +8,7 @@ namespace MamaApp.Models
     public class Source
     {
         [JsonProperty("id")]
-        public int? Id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("name")]
         public string SourceName { get; set; }

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 namespace MamaApp.Models
 {
     
-    public class Article
+    public class article
     {
         public Source Source { get; set; }
         [JsonProperty("author")]

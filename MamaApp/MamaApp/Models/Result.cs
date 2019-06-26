@@ -9,7 +9,7 @@ namespace MamaApp.Models
     {
         public string status { get; set; }
         public int? totalResults { get; set; }
-        public IEnumerable<Article> Articles { get; set; }
+        public List<article> Articles { get; set; }
         
     }
 }

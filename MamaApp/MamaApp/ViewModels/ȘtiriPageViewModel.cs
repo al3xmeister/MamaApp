@@ -20,11 +20,11 @@ namespace MamaApp.ViewModels
 
         public ȘtiriPageViewModel()
         {
-            AppearingCommand = new Command(async () => await ExecuteAppearingCommand());
+           
         }
 
-        private ObservableCollection<Models.Article> articles = new ObservableCollection<Models.Article>();
-        public ObservableCollection<Models.Article> Articles {
+        private ObservableCollection<Models.article> articles = new ObservableCollection<Models.article>();
+        public ObservableCollection<Models.article> Articles {
             get {
                 return articles;
             }
@@ -38,16 +38,6 @@ namespace MamaApp.ViewModels
             }
         }
 
-        public async Task ExecuteAppearingCommand()
-        {
-          var news =  await ServiceUtility.GetNews();
-
-          if (news != null )
-          {
-             this.Articles = new ObservableCollection<Models.Article>(news.Articles);
-          }
-           
-        }
 
         public ObservableCollection<Grouping<string, Article>> NewsGrouped;
 
