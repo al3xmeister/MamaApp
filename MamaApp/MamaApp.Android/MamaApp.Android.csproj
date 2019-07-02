@@ -20,6 +20,11 @@
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Users\Alex\Documents\upload-keystore.jks</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>Kremlin23</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>al3xmeister</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>Kremlin123</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

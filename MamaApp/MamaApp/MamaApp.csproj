@@ -44,9 +44,9 @@
     <Reference Include="Mono.Android">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
     </Reference>
-    <Reference Include="NewsAPI">
+    <!-- <Reference Include="NewsAPI">
       <HintPath>C:\Users\Alex\.nuget\packages\newsapi\0.5.0\lib\portable45-net45+win8+wpa81\NewsAPI.dll</HintPath>
-    </Reference>
+    </Reference> -->
   </ItemGroup>
 
   <ItemGroup>

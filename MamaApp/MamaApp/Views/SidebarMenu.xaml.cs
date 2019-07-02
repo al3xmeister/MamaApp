@@ -1,5 +1,4 @@
-﻿using Android.App;
-using MamaApp.Interfaces;
+﻿using MamaApp.Interfaces;
 using MamaApp.ViewModels;
 using System;
 using System.Threading.Tasks;
