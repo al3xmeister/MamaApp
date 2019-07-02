@@ -66,7 +66,7 @@ namespace MamaApp.Views
 
         private void HamburgerMenuImage_OnTapped(object sender, EventArgs e)
         {
-            this.Drawer.IsOpen = !this.Drawer.IsOpen;
+           // this.Drawer.IsOpen = !this.Drawer.IsOpen;
         }
 
 
