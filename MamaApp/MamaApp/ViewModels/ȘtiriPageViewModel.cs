@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using MamaApp.Models;
 using MamaApp.Utility;
-using NewsAPI.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using System.Linq;
-using Article = NewsAPI.Models.Article;
 
 namespace MamaApp.ViewModels
 {
@@ -39,7 +37,7 @@ namespace MamaApp.ViewModels
         }
 
 
-        public ObservableCollection<Grouping<string, Article>> NewsGrouped;
+        //public ObservableCollection<Grouping<string, Article>> NewsGrouped;
 
         public class Grouping<K, T> : ObservableCollection<T>
         {

@@ -5,7 +5,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using MamaApp.Models;
-using NewsAPI;
 using Newtonsoft.Json;
 
 namespace MamaApp.Utility {
