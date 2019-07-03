@@ -2,14 +2,11 @@
 using MamaApp.ViewModels;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Android.OS;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Newtonsoft.Json.Linq;
 
 namespace MamaApp.Views {
     [XamlCompilation(XamlCompilationOptions.Compile)]
