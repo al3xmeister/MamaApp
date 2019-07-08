@@ -20,7 +20,7 @@ namespace MamaApp.Views
         public ItemsPage()
         {
             InitializeComponent();
-
+            hamburgerButton.Image = (FileImageSource)ImageSource.FromFile("ic_menu_black_24dp.png");
             Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
 
             BindingContext = viewModel = new ItemsViewModel();
@@ -64,11 +64,14 @@ namespace MamaApp.Views
             Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged -= Current_ConnectivityChanged;
         }
 
-        private void HamburgerMenuImage_OnTapped(object sender, EventArgs e)
+        private void hamburgerButton_Clicked(object sender, EventArgs e)
         {
-          //  this.Drawer.IsOpen = !this.Drawer.IsOpen;
+            navigationDrawer.ToggleDrawer();
         }
-
+        private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
+            // Your codes here
+            navigationDrawer.ToggleDrawer();
+        }
 
     }
 }

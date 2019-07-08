@@ -15,8 +15,14 @@ namespace MamaApp
 
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTE4MDA4QDMxMzcyZTMxMmUzMGowajRYelI2YW9DUEtyYW9PV2lUaHVWQTFETzJqcUl4Qk42WEc5SWhiVTQ9");
+
+
             InitializeComponent();
 
+#if DEBUG
+            HotReloader.Current.Run(this);
+#endif
 
             MainPage = new ItemsPage();
         }
@@ -28,6 +34,7 @@ namespace MamaApp
                    typeof(Analytics), typeof(Crashes));
             AppCenter.Start("d8f823b0-9497-4973-8d4b-4c863b547c7e",
                                typeof(Analytics), typeof(Crashes));
+
         }
 
         protected override void OnSleep()
