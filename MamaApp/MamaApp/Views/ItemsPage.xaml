@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:MamaApp.Views;assembly=MamaApp"
              x:Class="MamaApp.Views.ItemsPage"
+             Visual="Material"
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-      
              x:Name="BrowseItemsPage">
 
     <ContentPage.Content>
@@ -20,7 +20,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <StackLayout BackgroundColor="LightSeaGreen" Orientation="Horizontal">
-                            <Button BackgroundColor="Transparent" x:Name="hamburgerButton" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" FontSize="20" Clicked="hamburgerButton_Clicked"/>
+                            <Button BackgroundColor="Transparent" x:Name="hamburgerButton" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" FontSize="20" Clicked="HamburgerButton_Clicked"/>
                             <Label x:Name="headerLabel" HeightRequest="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Meniu" FontSize="16" TextColor="White"/>
                         </StackLayout>
                         <Image Grid.Row="1" Source="thankyou.png" Aspect="AspectFit" />

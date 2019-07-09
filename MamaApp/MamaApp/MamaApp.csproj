@@ -33,6 +33,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="17.1.0.53" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.1.0.555618" />
     <PackageReference Include="Xamarin.HotReload" Version="1.4.12" />  
   </ItemGroup>
 

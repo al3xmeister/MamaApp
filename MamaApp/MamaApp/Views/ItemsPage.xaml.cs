@@ -15,12 +15,12 @@ namespace MamaApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        readonly ItemsViewModel viewModel;
 
         public ItemsPage()
         {
             InitializeComponent();
-            hamburgerButton.ImageSource = (FileImageSource)ImageSource.FromFile("ic_menu_black_24dp.png");
+            hamburgerButton.ImageSource = (FileImageSource)ImageSource.FromFile("ic_menu_white_24dp.png");
             Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
 
             BindingContext = viewModel = new ItemsViewModel();
@@ -64,7 +64,7 @@ namespace MamaApp.Views
             Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged -= Current_ConnectivityChanged;
         }
 
-        private void hamburgerButton_Clicked(object sender, EventArgs e)
+        private void HamburgerButton_Clicked(object sender, EventArgs e)
         {
             navigationDrawer.ToggleDrawer();
         }
