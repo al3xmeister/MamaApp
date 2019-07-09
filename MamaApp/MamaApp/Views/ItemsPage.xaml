@@ -4,152 +4,67 @@
              xmlns:views="clr-namespace:MamaApp.Views;assembly=MamaApp"
              x:Class="MamaApp.Views.ItemsPage"
              xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
-             ControlTemplate="{StaticResource DefaultMenuPage}"
+      
              x:Name="BrowseItemsPage">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <ControlTemplate
-                x:Key="DefaultMenuPage">
-                <Grid
-                    x:Name="navbarGrid"
-                    BackgroundColor="{StaticResource PrimaryDark}"
-                    ColumnSpacing="0"
-                    HeightRequest="35"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand">
-                    <Grid.Padding>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="Android" Value="0,0,0,0" />
-                        </OnPlatform>
-                    </Grid.Padding>
-                    <Grid.RowDefinitions>
-                        <RowDefinition
-                            Height="40" />
-                        <RowDefinition
-                            Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition
-                            Width="50" />
-                        <ColumnDefinition
-                            Width="*" />
-                        <ColumnDefinition
-                            Width="50" />
-                    </Grid.ColumnDefinitions>
-          
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Grid.ColumnSpan="2"
-                        BackgroundColor="Transparent"
-                        FontSize="20"
-                        HorizontalOptions="Center"
-                        Text="Aplicația mea"
-                        TextColor="#E2E2E2"
-                        VerticalOptions="Center">
-                    </Label>
-                        <Image
-                        Grid.Row="0"
-                        Grid.Column="2"
-                        Aspect="AspectFit"
-                        BackgroundColor="Transparent"
-                        HeightRequest="30"
-                        HorizontalOptions="Center"
-                        Source="mapIcon.png"
-                        VerticalOptions="Center"
-                        WidthRequest="30">
-                    </Image>
-                    <ContentPresenter
-                        Grid.Row="1"
-                        Grid.ColumnSpan="3" Grid.Column="0"
-                        BackgroundColor="{StaticResource PrimaryDark}"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand" />
-                </Grid>
-            </ControlTemplate>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+
     <ContentPage.Content>
         <Grid
             BackgroundColor="LightGreen"
             Margin="0"
             Padding="0">
-            <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" DrawerWidth ="200" DrawerHeaderHeight="80">
+            <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" DrawerWidth ="200" DrawerHeaderHeight="140">
                 <navigationdrawer:SfNavigationDrawer.ContentView>
-                    <Grid x:Name="mainContentView" BackgroundColor="White">
+                    <Grid x:Name="mainContentView" BackgroundColor="{StaticResource Primary}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <StackLayout BackgroundColor="#1aa1d6" Orientation="Horizontal">
-                            <Button x:Name="hamburgerButton" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" FontSize="20" BackgroundColor="#1aa1d6" Clicked="hamburgerButton_Clicked"/>
-                            <Label x:Name="headerLabel" HeightRequest="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Home" FontSize="16" TextColor="White" BackgroundColor="#1aa1d6"/>
+                        <StackLayout BackgroundColor="LightSeaGreen" Orientation="Horizontal">
+                            <Button BackgroundColor="Transparent" x:Name="hamburgerButton" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" FontSize="20" Clicked="hamburgerButton_Clicked"/>
+                            <Label x:Name="headerLabel" HeightRequest="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Meniu" FontSize="16" TextColor="White"/>
                         </StackLayout>
-                        <Label Grid.Row="1" x:Name="contentLabel" VerticalOptions="Center" HorizontalOptions="Center" Text="Content x" FontSize="14" TextColor="Black"/>
+                        <Image Grid.Row="1" Source="thankyou.png" Aspect="AspectFit" />
                     </Grid>
                 </navigationdrawer:SfNavigationDrawer.ContentView>
                 <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
-                    <Grid BackgroundColor="#1aa1d6">
+                    <Grid BackgroundColor="LightSeaGreen">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="120"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Image Source="user.png" HeightRequest="110" Margin="0,10,0,0" BackgroundColor="#1aa1d6" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <Label Text="Meniu" Grid.Row="1" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontSize="20" TextColor="White"/>
+                        <Image Source="mama.png" HeightRequest="110" Margin="0,10,0,0" BackgroundColor="LightSeaGreen" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                     </Grid>
                 </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
                 <navigationdrawer:SfNavigationDrawer.DrawerContentView>
-                    <ListView x:Name="listView" ItemSelected="listView_ItemSelected">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout HeightRequest="40">
-                                        <Label Margin="10,7,0,0" Text="{Binding}" FontSize="16"/>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                    <ContentView
+                        BackgroundColor="{StaticResource Primary}"
+                        >
+                        <views:SidebarMenu></views:SidebarMenu>
+                    </ContentView>
                 </navigationdrawer:SfNavigationDrawer.DrawerContentView>
             </navigationdrawer:SfNavigationDrawer>
-            <!--<primitives:RadSideDrawer
-                x:Name="Drawer"
-                Margin="0"
-                DrawerLength="250"
-                DrawerTransitionType="SlideInOnTop">
-                <primitives:RadSideDrawer.DrawerContent>
-                    <views:SidebarMenu />
-                </primitives:RadSideDrawer.DrawerContent>
-                <primitives:RadSideDrawer.MainContent
-                    >
-                    <Grid
-                        Margin="0"
-                        Padding="0"
-                        x:Name="MainGrid">
-                        <Image Source="thankyou.png" Aspect="AspectFit" />
-                        <ActivityIndicator
-                            x:Name="activityIndicator"
-                            HeightRequest="40"
-                            HorizontalOptions="CenterAndExpand"
-                            IsRunning="{Binding IsBusy}"
-                            IsVisible="{Binding IsBusy}"
-                            VerticalOptions="CenterAndExpand">
-                            <ActivityIndicator.WidthRequest>
-                                <OnPlatform
-                                    x:TypeArguments="x:Double"
-                                    Android="100"
-                                    iOS="100" />
-                            </ActivityIndicator.WidthRequest>
-                            <ActivityIndicator.Color>
-                                <OnPlatform
-                                    x:TypeArguments="Color"
-                                    Android="ForestGreen"
-                                     />
-                            </ActivityIndicator.Color>
-                        </ActivityIndicator>
-                    </Grid>
-                </primitives:RadSideDrawer.MainContent>
-            </primitives:RadSideDrawer>-->
+
+            <ActivityIndicator
+                x:Name="activityIndicator"
+                HeightRequest="40"
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="CenterAndExpand">
+                <ActivityIndicator.WidthRequest>
+                    <OnPlatform
+                        x:TypeArguments="x:Double"
+                        Android="100"
+                        iOS="100" />
+                </ActivityIndicator.WidthRequest>
+                <ActivityIndicator.Color>
+                    <OnPlatform
+                        x:TypeArguments="Color"
+                        Android="ForestGreen"
+                    />
+                </ActivityIndicator.Color>
+            </ActivityIndicator>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

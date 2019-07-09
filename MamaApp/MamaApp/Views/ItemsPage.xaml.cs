@@ -20,7 +20,7 @@ namespace MamaApp.Views
         public ItemsPage()
         {
             InitializeComponent();
-            hamburgerButton.Image = (FileImageSource)ImageSource.FromFile("ic_menu_black_24dp.png");
+            hamburgerButton.ImageSource = (FileImageSource)ImageSource.FromFile("ic_menu_black_24dp.png");
             Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
 
             BindingContext = viewModel = new ItemsViewModel();
@@ -38,7 +38,7 @@ namespace MamaApp.Views
 
         private async void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
         {
-            if (viewModel.HasNetworkAccess is false)
+            if (!viewModel.HasNetworkAccess)
             {
                 try
                 {
@@ -68,10 +68,5 @@ namespace MamaApp.Views
         {
             navigationDrawer.ToggleDrawer();
         }
-        private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
-            // Your codes here
-            navigationDrawer.ToggleDrawer();
-        }
-
     }
 }

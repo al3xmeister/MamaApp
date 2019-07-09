@@ -17,30 +17,11 @@
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
-        <StackLayout BackgroundColor="{StaticResource Primary}"
-                 >
-            <StackLayout Spacing="0">
-                <StackLayout.Padding>
-                    <OnPlatform x:TypeArguments="Thickness" iOS="0,40,0,50" Android="0,20,0,20" />
-                </StackLayout.Padding>
-                <Label
-            FontSize="18"
-            HorizontalOptions="Center"
-            Text="Meniu"
-            TextColor="White">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-
-
-            </StackLayout>
+        <StackLayout>
+     
             <StackLayout>
                 <Grid
-            RowSpacing="0"
-            >
+            RowSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
