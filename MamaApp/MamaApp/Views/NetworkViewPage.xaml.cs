@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Plugin.Connectivity.Abstractions;
 using Xamarin.Forms;
@@ -20,10 +18,17 @@ namespace MamaApp.Views
 		{
 			base.OnAppearing ();
 
-			ConnectionDetails.Text = CrossConnectivity.Current
-                .ConnectionTypes.First ().ToString ();
+           
+            if (CrossConnectivity.Current.ConnectionTypes != null)
+            {
+                ConnectionDetails.Text =
+                    CrossConnectivity.Current.ConnectionTypes.FirstOrDefault().ToString() == "Cellular"
+                        ? "Fără conexiune la internet"
+                        : CrossConnectivity.Current.ConnectionTypes.FirstOrDefault().ToString();
 
-			CrossConnectivity.Current.ConnectivityChanged += UpdateNetworkInfo;
+            }
+
+            CrossConnectivity.Current.ConnectivityChanged += UpdateNetworkInfo;
 		}
 
 		protected override void OnDisappearing ()
@@ -35,10 +40,21 @@ namespace MamaApp.Views
 
 		private void UpdateNetworkInfo (object sender, ConnectivityChangedEventArgs e)
 		{
-			if (CrossConnectivity.Current != null && CrossConnectivity.Current.ConnectionTypes != null) {
-				var connectionType = CrossConnectivity.Current.ConnectionTypes.FirstOrDefault ();
-				ConnectionDetails.Text = connectionType.ToString ();
-			}
+            try
+            {
+                if (CrossConnectivity.Current != null && CrossConnectivity.Current.ConnectionTypes != null) {
+                    var connectionType = CrossConnectivity.Current.ConnectionTypes.First();
+                    ConnectionDetails.Text = connectionType.ToString();
+                } else {
+
+                    ConnectionDetails.Text = "Fără conexiune la internet.";
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+		
 		}
 	}
 }

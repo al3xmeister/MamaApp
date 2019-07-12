@@ -26,49 +26,9 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid
-              Grid.Row="0"
-              HeightRequest="40"
-              StyleId="none">
-                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Image
-                  Aspect="AspectFit"
-                  HeightRequest="14"
-                  HorizontalOptions="Start"
-                  Source="user.png"
-                  VerticalOptions="Center" />
-                            <Label
-                                Style="{StaticResource DrawerEntry}"
-                  Grid.Column="1"
-                  Margin="10,0,0,0"
-                  FontSize="14"
-                  HorizontalTextAlignment="Start"
-                  Text="Muzică"
-                  >
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Muzică_Tapped" />
-                                </Label.GestureRecognizers>
-                           
-                            </Label>
-
-                        </Grid>
-                    </Grid>
-                    <Grid
-              Grid.Row="1"
+                        Grid.Row="0"
               HeightRequest="40"
               StyleId="none">
                         <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
@@ -104,8 +64,7 @@
                         </Grid>
                     </Grid>
                     <Grid
-              Grid.Row="2"
-              HeightRequest="40"
+                        Grid.Row="1" HeightRequest="40"
               StyleId="none">
                         <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
                             <Grid.ColumnDefinitions>
@@ -140,220 +99,7 @@
 
                         </Grid>
                     </Grid>
-                    <Grid
-              Grid.Row="3"
-              HeightRequest="40"
-              StyleId="none">
-                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Image
-                  Aspect="AspectFit"
-                  HeightRequest="14"
-                  HorizontalOptions="Start"
-                  Source="list.png"
-                  VerticalOptions="Center" />
-                            <Label
-                  Grid.Column="1"
-                  Margin="10,0,0,0"
-                  FontSize="14"
-                  HorizontalTextAlignment="Start"
-                  Text="Whatsapp"
-                  TextColor="#FFFFFF"
-                  VerticalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NotImplementedYet_Tapped"  />
-                                </Label.GestureRecognizers>
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-
-                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-
-                        </Grid>
-                    </Grid>
-                    <Grid
-              Grid.Row="4"
-              HeightRequest="40"
-              StyleId="none">
-                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Image
-                  Aspect="AspectFit"
-                  HeightRequest="14"
-                  HorizontalOptions="Start"
-                  Source="kublockedblue.png"
-                  VerticalOptions="Center" />
-                            <Label
-                  Grid.Column="1"
-                  Margin="10,0,0,0"
-                  FontSize="14"
-                  HorizontalTextAlignment="Start"
-                  Text="Facebook"
-                  TextColor="#FFFFFF"
-                  VerticalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NotImplementedYet_Tapped"  />
-                                </Label.GestureRecognizers>
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-
-                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-
-                        </Grid>
-                    </Grid>
-                    <Grid
-              Grid.Row="5"
-              HeightRequest="40"
-              StyleId="none">
-                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Image
-                  Aspect="AspectFit"
-                  HeightRequest="14"
-                  HorizontalOptions="Start"
-                  Source="envelope.png"
-                  VerticalOptions="Center" />
-                            <Label
-                  Grid.Column="1"
-                  Margin="10,0,0,0"
-                  FontSize="14"
-                  HorizontalTextAlignment="Start"
-                  Text="Poze"
-                  TextColor="#FFFFFF"
-                  VerticalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NotImplementedYet_Tapped" />
-                                </Label.GestureRecognizers>
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-
-                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="6">
-                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Image
-                  Aspect="AspectFit"
-                  HeightRequest="14"
-                  HorizontalOptions="Start"
-                  Source="user.png"
-                  VerticalOptions="Center" />
-                            <Label
-                  Grid.Column="1"
-                  Margin="10,0,0,0"
-                  FontSize="14"
-                  HorizontalTextAlignment="Start"
-                  Text="Telefon"
-                  TextColor="#FFFFFF"
-                  VerticalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NotImplementedYet_Tapped"  />
-                                </Label.GestureRecognizers>
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-
-                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="7">
-                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Image
-                  Aspect="AspectFit"
-                  HeightRequest="14"
-                  HorizontalOptions="Start"
-                  Source="questionmark.png"
-                  VerticalOptions="Center" />
-                            <Label
-                  Grid.Column="1"
-                  Margin="10,0,0,0"
-                  FontSize="14"
-                  HorizontalTextAlignment="Start"
-                  Text="Țintar"
-                  TextColor="#FFFFFF"
-                  VerticalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NotImplementedYet_Tapped"  />
-                                </Label.GestureRecognizers>
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-
-                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="8">
-                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Image
-                  Aspect="AspectFit"
-                  HeightRequest="14"
-                  HorizontalOptions="Start"
-                  Source="list.png"
-                  VerticalOptions="Center" />
-                            <Label
-                  Grid.Column="1"
-                  Margin="10,0,0,0"
-                  FontSize="14"
-                  HorizontalTextAlignment="Start"
-                  Text="Silențios"
-                  TextColor="#FFFFFF"
-                  VerticalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NotImplementedYet_Tapped"  />
-                                </Label.GestureRecognizers>
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-
-                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="9">
+                    <Grid Grid.Row="2">
                         <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -375,41 +121,7 @@
                   TextColor="#FFFFFF"
                   VerticalOptions="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NotImplementedYet_Tapped"  />
-                                </Label.GestureRecognizers>
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-
-                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="10">
-                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-
-                            </Grid.ColumnDefinitions>
-                            <Image
-                                Aspect="AspectFit"
-                                HeightRequest="14"
-                                HorizontalOptions="Start"
-                                Source="kublockedblue.png"
-                                VerticalOptions="Center" />
-                            <Label
-                                Grid.Column="1"
-                                Margin="10,0,0,0"
-                                FontSize="14"
-                                HorizontalTextAlignment="Start"
-                                Text="Powered by NewsApi.org"
-                                TextColor="Transparent"
-                                VerticalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NotImplementedYet_Tapped" />
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Network_Tapped"  />
                                 </Label.GestureRecognizers>
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">

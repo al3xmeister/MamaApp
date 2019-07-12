@@ -31,6 +31,7 @@ namespace MamaApp.Views
 
         // this needs uncommented
         //public async Task NavigateIfHasNetworkAccess(Page page) {
+
         //    if (ViewModel.HasNetworkAccess) {
         //        await Navigation.PushAsync(page);
         //    } else {
@@ -47,7 +48,14 @@ namespace MamaApp.Views
 
             view.IsEnabled = true;
         }
+        private async void Network_Tapped(object sender, EventArgs e) {
+            var view = (View)sender;
+            view.IsEnabled = false;
 
+            await Navigation.PushModalAsync(new NetworkViewPage());
+
+            view.IsEnabled = true;
+        }
         private async void Horoscop_Tapped(object sender, EventArgs e)
         {
             var today = DateTime.Today;
@@ -73,13 +81,6 @@ namespace MamaApp.Views
             await Navigation.PushModalAsync(new ȘtiriPage(new ȘtiriPageViewModel()));
         }
 
-        private async void CleanNotifications_Tapped(object sender, EventArgs e)
-        {
-            ClearNotifications();
-        }
-        public void ClearNotifications() {
-  
-        }
 
         private async void NotImplementedYet_Tapped(object sender, EventArgs e)
         {

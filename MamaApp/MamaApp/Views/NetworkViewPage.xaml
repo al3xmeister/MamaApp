@@ -17,8 +17,12 @@
       <OnPlatform x:TypeArguments="Thickness" Android="5"  />
     </StackLayout.Padding>
 
-    <StackLayout Orientation="Horizontal">
-      <Label>Conectat cu: </Label>
+    <StackLayout
+        VerticalOptions="CenterAndExpand"
+        Orientation="Horizontal">
+      <Label
+          MaxLines="1"
+          LineBreakMode="NoWrap">Conectat cu: </Label>
       <Label x:Name="ConnectionDetails" />
     </StackLayout>
 

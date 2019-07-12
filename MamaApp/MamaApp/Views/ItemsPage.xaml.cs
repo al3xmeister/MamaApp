@@ -24,7 +24,6 @@ namespace MamaApp.Views
             Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
 
             BindingContext = viewModel = new ItemsViewModel();
-          //  NavigationPage.SetHasNavigationBar(this, false);   
         }
 
 
