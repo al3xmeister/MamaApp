@@ -52,7 +52,7 @@ namespace MamaApp.Views
             var view = (View)sender;
             view.IsEnabled = false;
 
-            await Navigation.PushModalAsync(new NetworkViewPage());
+            await Navigation.PushAsync(new NetworkViewPage());
 
             view.IsEnabled = true;
         }

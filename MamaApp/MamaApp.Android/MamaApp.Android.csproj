@@ -101,6 +101,7 @@
     <Compile Include="Renderers\CustomListViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PushCancelService.cs" />
     <Compile Include="Services\SoundSettings.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,6 @@ using System.Text;
 
 namespace MamaApp.Interfaces {
     public interface IPushCancel {
-        void CancelPush(int id);
+        void ClearNotifications();
     }
 }

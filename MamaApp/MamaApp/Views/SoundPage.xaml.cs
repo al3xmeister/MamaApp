@@ -13,7 +13,7 @@ namespace MamaApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SoundPage : ContentPage
     {
-        private SoundPageViewModel viewModel;
+        private readonly SoundPageViewModel viewModel;
         public SoundPage()
         {
             InitializeComponent();
@@ -38,6 +38,6 @@ namespace MamaApp.Views
             var sound = DependencyService.Get<ISoundSettings>();
             sound.SetPhoneLevelToLouder();
         }
-   
+      
     }
 }

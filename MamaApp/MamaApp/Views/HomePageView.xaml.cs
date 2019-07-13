@@ -17,7 +17,7 @@ namespace MamaApp.Views {
 
             BindingContext = viewModel = new HomePageViewModel();
 
-          // NavigationPage.SetHasNavigationBar(this, false);
+           NavigationPage.SetHasNavigationBar(this, false);
         }
 
 
