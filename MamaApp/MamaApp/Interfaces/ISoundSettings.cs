@@ -6,5 +6,8 @@ namespace MamaApp.Interfaces {
     public interface ISoundSettings
     {
         void SetToSilent();
+        void SetToVibrate();
+        void SetPhoneLevelToLouder();
+        void SetRingtoneLevelToLouder();
     }
 }

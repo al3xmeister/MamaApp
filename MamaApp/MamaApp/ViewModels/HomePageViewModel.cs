@@ -10,12 +10,12 @@ using MamaApp.Views;
 
 namespace MamaApp.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class HomePageViewModel : BaseViewModel
     {
         public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public ItemsViewModel()
+        public HomePageViewModel()
         {
             Title = "Meniu";
             Items = new ObservableCollection<Item>();

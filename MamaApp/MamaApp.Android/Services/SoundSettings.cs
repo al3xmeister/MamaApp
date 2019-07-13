@@ -22,6 +22,43 @@ namespace MamaApp.Droid.Services {
             var audioMgr = (AudioManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.AudioService);
             audioMgr.RingerMode = RingerMode.Silent; // In Oreo(+) this will enable DnD mode
         }
-    
+
+        public void SetToVibrate() {
+            var audioMgr = (AudioManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.AudioService);
+            audioMgr.RingerMode = RingerMode.Vibrate; // In Oreo(+) this will enable DnD mode
+        }
+
+        public void SetPhoneLevelToLouder() {
+            var audioMgr = (AudioManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.AudioService);
+            audioMgr.RingerMode = RingerMode.Normal; // In Oreo(+) this will enable DnD mode
+            try {
+                audioMgr.AdjustSuggestedStreamVolume(Adjust.Raise, Android.Media.Stream.System, VolumeNotificationFlags.ShowUi);
+                audioMgr.AdjustSuggestedStreamVolume(Adjust.Raise, Android.Media.Stream.System, VolumeNotificationFlags.ShowUi);
+                audioMgr.AdjustSuggestedStreamVolume(Adjust.Raise, Android.Media.Stream.System, VolumeNotificationFlags.ShowUi);
+                audioMgr.AdjustSuggestedStreamVolume(Adjust.Raise, Android.Media.Stream.System, VolumeNotificationFlags.ShowUi);
+            } catch (Exception e) {
+                System.Diagnostics.Debug.WriteLine(e);
+            }
+        }
+
+        public void SetRingtoneLevelToLouder() {
+            var audioMgr = (AudioManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.AudioService);
+        
+            audioMgr.RingerMode = RingerMode.Normal;
+
+            try
+            {
+                audioMgr.AdjustSuggestedStreamVolume(Adjust.Raise, Android.Media.Stream.Ring, VolumeNotificationFlags.ShowUi);
+                audioMgr.AdjustSuggestedStreamVolume(Adjust.Raise, Android.Media.Stream.Ring, VolumeNotificationFlags.ShowUi);
+                audioMgr.AdjustSuggestedStreamVolume(Adjust.Raise, Android.Media.Stream.Ring, VolumeNotificationFlags.ShowUi);
+                audioMgr.AdjustSuggestedStreamVolume(Adjust.Raise, Android.Media.Stream.Ring, VolumeNotificationFlags.ShowUi);
+            }
+            catch (Exception e)
+            {
+               System.Diagnostics.Debug.WriteLine(e);
+            }
+
+        }
+
     }
 }

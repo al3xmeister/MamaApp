@@ -44,7 +44,7 @@ namespace MamaApp.Views
             var view = (View) sender;
             view.IsEnabled = false;
 
-            await Navigation.PushModalAsync((new MuzicăPage()));
+            await Navigation.PushAsync((new SoundPage()));
 
             view.IsEnabled = true;
         }

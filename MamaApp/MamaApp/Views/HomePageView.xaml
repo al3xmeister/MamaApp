@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xForms="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
              xmlns:views="clr-namespace:MamaApp.Views;assembly=MamaApp"
-             x:Class="MamaApp.Views.ItemsPage"
-             Visual="Material"
-             xmlns:navigationdrawer="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms">
-
+             mc:Ignorable="d"
+             x:Class="MamaApp.Views.HomePageView">
     <ContentPage.Content>
         <Grid
             BackgroundColor="LightGreen"
             Margin="0"
             Padding="0">
-            <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer" DrawerWidth ="200" DrawerHeaderHeight="140">
-                <navigationdrawer:SfNavigationDrawer.ContentView>
+            <xForms:SfNavigationDrawer x:Name="navigationDrawer" DrawerWidth ="200" DrawerHeaderHeight="140">
+                <xForms:SfNavigationDrawer.ContentView>
                     <Grid x:Name="mainContentView" BackgroundColor="{StaticResource Primary}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
@@ -24,8 +25,8 @@
                         </StackLayout>
                         <Image Grid.Row="1" Source="thankyou.png" Aspect="AspectFit" />
                     </Grid>
-                </navigationdrawer:SfNavigationDrawer.ContentView>
-                <navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
+                </xForms:SfNavigationDrawer.ContentView>
+                <xForms:SfNavigationDrawer.DrawerHeaderView>
                     <Grid BackgroundColor="LightSeaGreen">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="120"/>
@@ -33,15 +34,15 @@
                         </Grid.RowDefinitions>
                         <Image Source="mam.png" HeightRequest="110" Margin="0,10,0,0" BackgroundColor="LightSeaGreen" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                     </Grid>
-                </navigationdrawer:SfNavigationDrawer.DrawerHeaderView>
-                <navigationdrawer:SfNavigationDrawer.DrawerContentView>
+                </xForms:SfNavigationDrawer.DrawerHeaderView>
+                <xForms:SfNavigationDrawer.DrawerContentView>
                     <ContentView
                         BackgroundColor="{StaticResource Primary}"
                         >
                         <views:SidebarMenu></views:SidebarMenu>
                     </ContentView>
-                </navigationdrawer:SfNavigationDrawer.DrawerContentView>
-            </navigationdrawer:SfNavigationDrawer>
+                </xForms:SfNavigationDrawer.DrawerContentView>
+            </xForms:SfNavigationDrawer>
 
             <ActivityIndicator
                 x:Name="activityIndicator"

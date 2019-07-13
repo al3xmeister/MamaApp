@@ -24,7 +24,7 @@ namespace MamaApp
             HotReloader.Current.Run(this);
 #endif
 
-            MainPage = new ItemsPage();
+            MainPage = new NavigationPage(new HomePageView());
         }
 
         protected override void OnStart()

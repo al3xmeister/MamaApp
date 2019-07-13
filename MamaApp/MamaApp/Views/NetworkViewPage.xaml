@@ -16,15 +16,39 @@
     <StackLayout.Padding>
       <OnPlatform x:TypeArguments="Thickness" Android="5"  />
     </StackLayout.Padding>
-
+<StackLayout
+    VerticalOptions="FillAndExpand">
     <StackLayout
         VerticalOptions="CenterAndExpand"
         Orientation="Horizontal">
-      <Label
-          MaxLines="1"
-          LineBreakMode="NoWrap">Conectat cu: </Label>
-      <Label x:Name="ConnectionDetails" />
+        <Label
+            MaxLines="1"
+            LineBreakMode="NoWrap">Conectat cu:</Label>
+        <Label x:Name="ConnectionDetails" />
+
+       </StackLayout>
+    <StackLayout
+        VerticalOptions="CenterAndExpand"
+        Orientation="Horizontal">
+      
+        <Label
+            VerticalOptions="CenterAndExpand"
+        >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Viteza curentă este:" />
+                        <Span Text=" " />
+                        <Span Text="{Binding CurrentBandwidth}" FontAttributes="Bold">
+                        </Span>
+                        <Span Text="." />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
     </StackLayout>
+        </StackLayout>
+
 
   </StackLayout>
 </ContentPage>
