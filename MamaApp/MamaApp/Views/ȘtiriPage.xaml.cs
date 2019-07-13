@@ -40,12 +40,10 @@ namespace MamaApp.Views {
             viewModel.IsBusy = false;
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
+        void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
 
             IsBusy = true;
-
-
-
+            
             if (e.Item == null)
                 return;
 

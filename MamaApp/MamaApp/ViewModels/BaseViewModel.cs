@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using Android.Media;
 using ByteSizeLib;
@@ -14,7 +16,58 @@ using Plugin.Connectivity;
 
 namespace MamaApp.ViewModels {
     public class BaseViewModel : INotifyPropertyChanged {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        protected virtual void OnPropertyChanged<T>(Expression<Func<T>> selectorExpression) {
+            if (selectorExpression == null)
+                throw new ArgumentNullException("selectorExpression");
+            MemberExpression body = selectorExpression.Body as MemberExpression;
+            if (body == null)
+                throw new ArgumentException("The body must be a member expression");
+            OnPropertyChanged(body.Member.Name);
+        }
+
+        protected bool SetField<T>(ref T field, T value, Expression<Func<T>> selectorExpression) {
+            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+            field = value;
+            OnPropertyChanged(selectorExpression);
+            return true;
+        }
+
+        protected void RaiseAllPropertiesChanged() {
+            // By convention, an empty string indicates all properties are invalid.
+            PropertyChanged(this, new PropertyChangedEventArgs(string.Empty));
+        }
+
+        protected void RaisePropertyChanged<T>(Expression<Func<T>> propExpr) {
+            var prop = (PropertyInfo)((MemberExpression)propExpr.Body).Member;
+            this.RaisePropertyChanged(prop.Name);
+        }
+
+        protected void RaisePropertyChanged([CallerMemberName] string propertyName = "") {
+            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected bool SetPropertyValue<T>(ref T storageField, T newValue, Expression<Func<T>> propExpr) {
+            if (Equals(storageField, newValue))
+                return false;
+
+            storageField = newValue;
+            var prop = (PropertyInfo)((MemberExpression)propExpr.Body).Member;
+            this.RaisePropertyChanged(prop.Name);
+
+            return true;
+        }
+
+        protected bool SetPropertyValue<T>(ref T storageField, T newValue, [CallerMemberName] string propertyName = "") {
+            if (Equals(storageField, newValue))
+                return false;
+
+            storageField = newValue;
+            this.RaisePropertyChanged(propertyName);
+
+            return true;
+        }
 
         private bool _isBusy;
         public bool IsBusy {
@@ -71,7 +124,7 @@ namespace MamaApp.ViewModels {
         }
 
         #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "") {
             var changed = PropertyChanged;
             if (changed == null)

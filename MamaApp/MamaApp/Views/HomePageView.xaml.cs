@@ -16,18 +16,14 @@ namespace MamaApp.Views {
             Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
 
             BindingContext = viewModel = new HomePageViewModel();
+
+           NavigationPage.SetHasNavigationBar(this, false);
         }
 
 
-        protected override async void OnAppearing() {
+        protected override void OnAppearing() {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
-            {
-                viewModel.LoadItemsCommand.Execute(null);
-            }
-
-           // await DisplayAlert("VITEZA", viewModel.CurrentBandwidth, "ok");
         }
 
         private async void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e) {

@@ -11,6 +11,8 @@ namespace MamaApp.Views {
         private NetworkPageViewModel viewModel;
         public NetworkViewPage() {
             InitializeComponent();
+
+            this.BindingContext = viewModel = new NetworkPageViewModel();
         }
 
         protected override void OnAppearing() {

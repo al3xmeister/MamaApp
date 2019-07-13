@@ -9,5 +9,7 @@ namespace MamaApp.Interfaces {
         void SetToVibrate();
         void SetPhoneLevelToLouder();
         void SetRingtoneLevelToLouder();
+
+        string GetCurrentRingtoneLevel();
     }
 }
