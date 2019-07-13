@@ -15,10 +15,10 @@ namespace MamaApp.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
-        bool isBusy = false;
+        private bool _isBusy;
         public bool IsBusy {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
         }
         public bool HasNetworkAccess => CrossConnectivity.Current.IsConnected;
 

@@ -14,7 +14,6 @@
         <Grid>
         <ListView
             BackgroundColor="LightCyan"
-            
             ItemTapped="Handle_ItemTapped"
             x:Name="lstView" 
             RowHeight="70">
@@ -61,10 +60,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-            <StackLayout IsVisible="{Binding Source={x:Reference NewsPage}, Path=IsBusy}"
+            <StackLayout IsVisible="{Binding IsBusy}"
                      HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="20">
             <Label Text="Încarc știri..." TextColor="Gray" HorizontalOptions="Center" />
-                <ActivityIndicator IsRunning="{Binding Source={x:Reference NewsPage}, Path=IsBusy}" Color="Accent" >
+                <ActivityIndicator
+                    IsVisible="{Binding IsBusy}"
+                    IsRunning="{Binding IsBusy}" 
+                    Color="Accent" >
             </ActivityIndicator>
         </StackLayout>
         </Grid>

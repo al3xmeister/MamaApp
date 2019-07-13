@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using MamaApp.Models;
 using MamaApp.Views;
 using MamaApp.ViewModels;
+using Xamarin.Essentials;
 
 namespace MamaApp.Views
 {
@@ -66,6 +67,13 @@ namespace MamaApp.Views
         private void HamburgerButton_Clicked(object sender, EventArgs e)
         {
             navigationDrawer.ToggleDrawer();
+            // Use default vibration length
+           // Vibration.Vibrate();
+
+            // Or use specified time
+            var duration = TimeSpan.FromSeconds(0.5);
+            Vibration.Vibrate(duration);
         }
-    }
+
+  }
 }

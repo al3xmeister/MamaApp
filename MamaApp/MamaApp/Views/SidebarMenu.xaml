@@ -26,6 +26,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid
                         Grid.Row="0"
@@ -122,6 +123,40 @@
                   VerticalOptions="Center">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Network_Tapped"  />
+                                </Label.GestureRecognizers>
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+
+                                        <On Platform="Android" Value="Chonburi-Regular.ttf#Chonburi-Regular" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid Padding="20,10,5,10" HorizontalOptions="Fill">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="14"
+                                HorizontalOptions="Start"
+                                Source="kublockedblue.png"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="1"
+                                Margin="10,0,0,0"
+                                FontSize="14"
+                                HorizontalTextAlignment="Start"
+                                Text="Volum sunet"
+                                TextColor="#FFFFFF"
+                                VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Muzică_Tapped"  />
                                 </Label.GestureRecognizers>
                                 <Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">

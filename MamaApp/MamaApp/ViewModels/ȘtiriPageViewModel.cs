@@ -35,10 +35,8 @@ namespace MamaApp.ViewModels
                 }
             }
         }
-
-
-        //public ObservableCollection<Grouping<string, Article>> NewsGrouped;
-
+        
+     
         public class Grouping<K, T> : ObservableCollection<T>
         {
 

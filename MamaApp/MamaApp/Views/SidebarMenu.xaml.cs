@@ -78,7 +78,7 @@ namespace MamaApp.Views
 
         private async void Știri_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new ȘtiriPage(new ȘtiriPageViewModel()));
+            await Navigation.PushAsync(new ȘtiriPage());
         }
 
 

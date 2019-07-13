@@ -13,37 +13,20 @@ namespace MamaApp.Views {
     public partial class ȘtiriPage : ContentPage {
 
         private const string url = "https://newsapi.org/v2/top-headlines?country=ro&apiKey=514376a3e0ee44229f62f33a236b69b0";
-        private HttpClient _Client = new HttpClient();
-        private ObservableCollection<Result> _post;
+        private readonly HttpClient _Client = new HttpClient();
+        private readonly ȘtiriPageViewModel viewModel;
 
-        public ȘtiriPage(ȘtiriPageViewModel viewModel) {
-            IsBusy = true;
-            Model = viewModel;
+        public ȘtiriPage() {
+
+
             InitializeComponent();
+            viewModel = new ȘtiriPageViewModel();
+            BindingContext = viewModel;
 
-            InitializeNews();
-
-            IsBusy = false;
         }
 
-        private async void InitializeNews() {
-
-            IsBusy = true;
-
-            ȘtiriPageViewModel viewModel;
-            BindingContext = viewModel = new ȘtiriPageViewModel();
-
-            IsBusy = false;
-        }
-
-        public ȘtiriPageViewModel Model {
-            get { return (ȘtiriPageViewModel)BindingContext; }
-            set { BindingContext = value; }
-        }
-
-        protected override async void OnAppearing()
-        {
-            var response = _Client.GetAsync(url).Result;
+        protected override async void OnAppearing() {
+            viewModel.IsBusy = true;
 
             var content = await _Client.GetStringAsync(url);
 
@@ -54,34 +37,29 @@ namespace MamaApp.Views {
 
             lstView.ItemsSource = trends;
 
-
+            viewModel.IsBusy = false;
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
-            await Task.Run(() => {
-                Device.BeginInvokeOnMainThread(() => {
-                    IsBusy = true;
-                });
-            });
+
+            IsBusy = true;
+
+
 
             if (e.Item == null)
                 return;
 
             ((ListView)sender).SelectedItem = null;
 
-            await Task.Run(() => {
-                Device.BeginInvokeOnMainThread(() => {
-                    var item = (article)e.Item;
-                    var url = item.url;
 
-                    Device.OpenUri(new Uri(url));
-                });
-            });
-            await Task.Run(() => {
-                Device.BeginInvokeOnMainThread(() => {
-                    IsBusy = false;
-                });
-            });
+            var item = (article)e.Item;
+            var url = item.url;
+
+            Device.OpenUri(new Uri(url));
+
+            IsBusy = false;
+
+
         }
     }
 }
