@@ -19,6 +19,7 @@
 <StackLayout
     VerticalOptions="FillAndExpand">
     <StackLayout
+        HorizontalOptions="CenterAndExpand"
         VerticalOptions="CenterAndExpand"
         Orientation="Horizontal">
         <Label
@@ -32,6 +33,7 @@
         Orientation="Horizontal">
       
         <Label
+            HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand"
         >
             <Label.FormattedText>

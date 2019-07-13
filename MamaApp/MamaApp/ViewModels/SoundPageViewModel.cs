@@ -8,11 +8,11 @@ namespace MamaApp.ViewModels {
     public class SoundPageViewModel : BaseViewModel
     {
 
-        private string volumeLevel;
+        private string volumeLevel="";
         public string VolumeLevel
         {
             get {
-                if (volumeLevel != null) {
+                if (!string.IsNullOrWhiteSpace(volumeLevel)) {
                     return volumeLevel;
                 }
                 var sound = DependencyService.Get<ISoundSettings>();

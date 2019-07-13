@@ -17,13 +17,12 @@ namespace MamaApp.Views {
 
             BindingContext = viewModel = new HomePageViewModel();
 
-           NavigationPage.SetHasNavigationBar(this, false);
+          // NavigationPage.SetHasNavigationBar(this, false);
         }
 
 
         protected override void OnAppearing() {
             base.OnAppearing();
-
         }
 
         private async void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e) {
